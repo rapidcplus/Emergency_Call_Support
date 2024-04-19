@@ -94,3 +94,5 @@
 - データベース: MySQL
 - インフラ: Docker環境
 - SMS送信: Twilio API
+
+[画面遷移図](https://www.figma.com/file/b2eg08fgpCZsViWha4ok0T/Emergency_Call_Support(Flow-Diagram)?type=whiteboard&node-id=0%3A1&t=87TxCsT2z5kEfRZS-1)
