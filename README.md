@@ -71,10 +71,10 @@
 - 説明動画一覧画面: 様々な説明動画のサムネイルを表示
 - 動画選択機能: ユーザーが状況に合った動画を選択
 - SMS送信機能: 選択した動画のURLをSMSで送信
+- 検索機能: タイトル、タグ検索
 
 **本リリースまで**
 
-- 検索機能
 - カテゴリ分類機能
 - ユーザー管理機能
 
@@ -86,9 +86,13 @@
 - 他消防本部への横展開
 
 ---
-### **機能の実装方針予定**
+### **技術スタック**
 
-**説明動画一覧画面**
+- フロントエンド: HTML, CSS, JavaScript
+- バックエンド: Ruby (Ruby on Rails)
+- データベース: MySQL
+- インフラ: Docker環境
+- SMS送信: Twilio API
 
 [画面遷移図](https://www.figma.com/file/b2eg08fgpCZsViWha4ok0T/Emergency_Call_Support(Flow-Diagram)?type=whiteboard&node-id=0%3A1&t=87TxCsT2z5kEfRZS-1)
 
