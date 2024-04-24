@@ -1,22 +1,21 @@
-class UsersController < ApplicationController
-  def new
-    @sign_up_form = SignUpForm.new
-  end
+class UserSessionsController < ApplicationController
+  skip_before_action :require_login, only: %i[new create]
+
+  def new; end
 
   def create
-    @sign_up_form = SignUpForm.new(sign_up_form_params)
-    if @sign_up_form.save
-      session[:user_id] = @sign_up_form.user.id
-      redirect_to posts_path, flash: { success: 'サインアップしました' }
+    @user = login(params[:email], params[:password])
+
+    if @user
+      redirect_to items_index_path, success: t('user_sessions.create.success')
     else
-      flash.now[:danger] = 'サインアップに失敗しました'
-      render :new
+      flash.now[:danger] = t('user_sessions.create.failure')
+      render :new, status: :unprocessable_entity
     end
   end
 
-  private
-
-  def sign_up_form_params
-    params.require(:sign_up_form).permit(:email, :password, :password_confirmation, :name)
+  def destroy
+    logout
+    redirect_to root_path, status: :see_other,flash: { danger: t('user_sessions.destroy.success') }
   end
 end
